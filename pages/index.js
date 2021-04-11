@@ -1,23 +1,9 @@
 import CoinsList from "../components/CoinsList";
-import Link from "next/link";
-import Image from "next/image";
 
 export default function Home({coins}) {
 
   return (
       <div className="max-w-[1000px]">
-          <header className="flex justify-center mb-4">
-              <Link className="w-auto" href="/">
-                  <a>
-                      <Image
-                          src="/logo.png"
-                          alt="qriptique"
-                          width="200px"
-                          height="200px"
-                      />
-                  </a>
-              </Link>
-          </header>
           <CoinsList coins={coins}/>
       </div>
 

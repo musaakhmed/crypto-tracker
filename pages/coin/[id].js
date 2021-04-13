@@ -1,4 +1,5 @@
 // import {getServerSideProps} from "../index";
+import Head from "next/head";
 
 const Coin = ({coin}) => {
     console.log(coin)
@@ -15,7 +16,13 @@ const Coin = ({coin}) => {
     } = market_data
 
     return (
-        <div className="mx-4 md:mx-auto md:w-1/2 font-body bg-white border overflow-hidden rounded-2xl shadow-lg">
+        <>
+        <div>
+            <Head>
+                <title>{name} | qriptique</title>
+            </Head>
+        </div>
+        <div className="mx-4 md:mx-auto md:w-1/2 font-body bg-white dark:bg-gray-800 dark:border-opacity-0 overflow-hidden rounded-2xl shadow-lg">
             <section className="p-8 flex justify-center items-center flex-col lg:flex-row">
                     <img className="h-12" src={image.large} alt={name}/>
                     <div className="px-6 py-4 flex items-center">
@@ -24,7 +31,7 @@ const Coin = ({coin}) => {
                     </div>
             </section>
             <section className="xl:flex text-md">
-                    <div className="xl:w-1/2 bg-yellow-300 p-8">
+                    <div className="xl:w-1/2 bg-yellow-300 dark:bg-yellow-600 p-8">
                         <div className="flex">
                             <div className="w-1/2 font-semibold text-md">Price: </div>
                             <div className="w-1/2 text-right">${current_price.usd.toLocaleString()}</div>
@@ -42,15 +49,15 @@ const Coin = ({coin}) => {
                             <div className="w-1/2 text-right">${total_volume.usd.toLocaleString()}</div>
                         </div>
                 </div>
-                <div className="xl:w-1/2 p-8 bg-gray-200">
+                <div className="xl:w-1/2 p-8 bg-gray-200 dark:bg-gray-500">
                         <div className="flex">
                             <div className="w-1/2 font-semibold text-md">Change 24H: </div>
                             <div className="w-1/2 text-right">{price_change_percentage_24h < 0 ? (
-                                <p className="text-red-600 text-right">
+                                <p className="text-red-600 dark:text-red-400">
                                     {price_change_percentage_24h.toFixed(2)}%
                                 </p>
                             ) : (
-                                <p className="text-green-600 text-right">
+                                <p className="text-green-600 dark:text-green-400">
                                     {price_change_percentage_24h.toFixed(2)}%
                                 </p>
                             )}</div>
@@ -58,11 +65,11 @@ const Coin = ({coin}) => {
                         <div className="flex">
                             <div className="w-1/2 font-semibold text-md">Change 7d: </div>
                             <div className="w-1/2 text-right">{price_change_percentage_7d < 0 ? (
-                            <p className="text-red-600">
+                            <p className="text-red-600 dark:text-red-400">
                                 {price_change_percentage_7d.toFixed(2)}%
                             </p>
                         ) : (
-                            <p className="text-green-600">
+                            <p className="text-green-600 dark:text-green-400">
                                 {price_change_percentage_7d.toFixed(2)}%
                             </p>
                         )}
@@ -72,11 +79,11 @@ const Coin = ({coin}) => {
                             <div className="w-1/2 font-semibold text-md">Change 30d: </div>
                             <div className="w-1/2 text-right">
                                 {price_change_percentage_30d < 0 ? (
-                                    <p className="text-red-600">
+                                    <p className="text-red-600 dark:text-red-400">
                                         {price_change_percentage_30d.toFixed(2)}%
                                     </p>
                                 ) : (
-                                    <p className="text-green-600">
+                                    <p className="text-green-600 dark:text-green-400">
                                         {price_change_percentage_30d.toFixed(2)}%
                                     </p>
                                 )}
@@ -86,11 +93,11 @@ const Coin = ({coin}) => {
                                 <div className="w-1/2 font-semibold text-md">Change 1 year: </div>
                                 <div className="w-1/2 text-right">
                                     {price_change_percentage_1y < 0 ? (
-                                <p className="text-red-600">
+                                <p className="text-red-600 dark:text-red-400">
                                     {price_change_percentage_1y.toFixed(2)}%
                                 </p>
                             ) : (
-                                <p className="text-green-600">
+                                <p className="text-green-600 dark:text-green-400">
                                     {price_change_percentage_1y.toFixed(2)}%
                                 </p>
                             )}
@@ -99,6 +106,7 @@ const Coin = ({coin}) => {
                 </div>
             </section>
         </div>
+        </>
     );
 };
 

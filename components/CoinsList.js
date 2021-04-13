@@ -1,12 +1,15 @@
 import Link from "next/link";
+import Head from "next/head";
 
 const CoinsList = ({coins}) => {
-    console.log(coins)
 
     return (
-        <div className="container mx-auto font-body bg-white">
-            <div className="rounded-lg border shadow-lg">
-                <div className="w-full px-4 flex flex-col overflow-hidden bg-gray-200 hidden lg:flex">
+        <div className="">
+            <Head>
+                <title>qriptique</title>
+            </Head>
+            <div className="container mx-auto font-body bg-white dark:bg-gray-600 rounded-lg shadow-lg">
+                <div className="w-full px-4 flex flex-col rounded-t-lg overflow-hidden bg-gray-200 dark:bg-gray-800 hidden lg:flex">
                     <div className="flex-grow flex flex-col">
                         <div className="flex-grow flex px-6 py-6 text-grey-darker items-center">
                             <div className="w-1/2 lg:w-1/4 px-10 flex items-center">
@@ -40,15 +43,13 @@ const CoinsList = ({coins}) => {
                         </div>
                     </div>
                 </div>
-
-
                 {coins.map(coin => (
                     <Link
                         href={`/coin/` + coin.id}
                         key={coin.id}>
-                        <a className="w-full px-4 flex flex-col overflow-hidden hover:bg-gray-100 transition ease-in-out duration-400">
+                        <a className="w-full px-4 flex flex-col overflow-hidden hover:bg-gray-100 dark:hover:bg-gray-700 transition ease-in-out duration-400">
                             <div className="flex-grow flex flex-col">
-                                <div className="flex-grow flex px-1 sm:px-6 py-6 text-grey-darker items-center">
+                                <div className="flex-grow flex px-1 sm:px-4 py-4 text-grey-darker items-center">
                                     <div className="w-1/2 lg:w-1/4  flex items-center">
                                         <div className="rounded-full mr-1 sm:mr-3">
                                             <img className="pl-1 pr-2 w-16 sm:pl-4" src={coin.image} alt={coin.name}/>
@@ -65,11 +66,11 @@ const CoinsList = ({coins}) => {
                                         </div>
                                         <div className="text-right lg:w-1/2">
                                             {coin.price_change_percentage_24h < 0 ? (
-                                                <div className="text-red-600">
+                                                <div className="text-red-600 dark:text-red-400">
                                                     {coin.price_change_percentage_24h.toFixed(2)}%
                                                 </div>
                                             ) : (
-                                                <div className="text-green-600">
+                                                <div className="text-green-600 dark:text-green-400">
                                                     {coin.price_change_percentage_24h.toFixed(2)}%
                                                 </div>
                                             )}

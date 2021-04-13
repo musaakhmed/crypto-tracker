@@ -15,16 +15,16 @@ const Coin = ({coin}) => {
     } = market_data
 
     return (
-        <div className="mx-16 font-body bg-white border overflow-hidden rounded-2xl shadow-lg">
-            <section className="p-8 flex justify-center items-center flex-col md:flex-row">
+        <div className="mx-4 md:mx-auto md:w-1/2 font-body bg-white border overflow-hidden rounded-2xl shadow-lg">
+            <section className="p-8 flex justify-center items-center flex-col lg:flex-row">
                     <img className="h-12" src={image.large} alt={name}/>
                     <div className="px-6 py-4 flex items-center">
                         <h1 className="font-semibold text-xl">{name}</h1>
                         <h2 className="text-xl text-gray-400 ml-4">{symbol.toUpperCase()}</h2>
                     </div>
             </section>
-            <section className="md:flex">
-                    <div className="md:w-1/2 bg-green-500 p-8">
+            <section className="xl:flex">
+                    <div className="xl:w-1/2 bg-green-500 p-8">
                         <div className="flex">
                             <div className="w-1/2">Price: </div>
                             <div className="w-1/2 text-right">${current_price.usd.toLocaleString()}</div>
@@ -42,7 +42,7 @@ const Coin = ({coin}) => {
                             <div className="w-1/2 text-right">${total_volume.usd.toLocaleString()}</div>
                         </div>
                 </div>
-                <div className="md:w-1/2 p-8 bg-yellow-500">
+                <div className="xl:w-1/2 p-8 bg-yellow-500">
                         <div className="flex">
                             <div className="w-1/2">Change 24H: </div>
                             <div className="w-1/2 text-right">{price_change_percentage_24h < 0 ? (

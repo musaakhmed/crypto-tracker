@@ -4,11 +4,11 @@ import Header from "./Header";
 
 export default function Layout({ children }) {
     return (
-        <div className="layout">
+        <div className="bg-gray-100 h-screen">
             <Header />
-            <div className="page-content">
+            <container>
                 { children }
-            </div>
+            </container>
             <Footer />
         </div>
     )
